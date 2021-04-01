@@ -21989,12 +21989,14 @@ class WeatherService {
     constructor(http, adapter) {
         this.http = http;
         this.adapter = adapter;
-        this.baseURL = 'http://api.openweathermap.org/data/2.5/weather';
+        this.baseURL = 'https://api.openweathermap.org/data/2.5/weather';
         this.appID = 'e9ea437b2d8579ed3fcc1700cf2ee7b4';
     }
     getWeatherInfo(city) {
         const url = `${this.baseURL}?q=${city.id}&appid=${this.appID}`;
-        return this.http.get(url).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((data) => this.adapter.adapt(data)));
+        return this.http
+            .get(url)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])((data) => this.adapter.adapt(data)));
     }
 }
 WeatherService.ɵfac = function WeatherService_Factory(t) { return new (t || WeatherService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_adapters_weather_adapter__WEBPACK_IMPORTED_MODULE_3__["WeatherAdapter"])); };
@@ -22002,7 +22004,7 @@ WeatherService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineIn
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](WeatherService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
-                providedIn: 'root'
+                providedIn: 'root',
             }]
     }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }, { type: _adapters_weather_adapter__WEBPACK_IMPORTED_MODULE_3__["WeatherAdapter"] }]; }, null); })();
 
